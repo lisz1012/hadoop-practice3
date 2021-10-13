@@ -46,7 +46,7 @@ public class TestHDFS {
 		IOUtils.copyBytes(input, output, conf, true);
 	}
 
-	//in/out交换
+	//in/out交换就成了下载
 	@Test
 	public void download() throws Exception {
 		BufferedOutputStream output = new BufferedOutputStream(new FileOutputStream(new File("./data/out.txt")));
