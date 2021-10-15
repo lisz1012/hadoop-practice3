@@ -19,19 +19,27 @@
   </properties>
 
   <dependencies>
-    <!-- https://mvnrepository.com/artifact/org.apache.hadoop/hadoop-common -->
+<!--    &lt;!&ndash; https://mvnrepository.com/artifact/org.apache.hadoop/hadoop-common &ndash;&gt;-->
+<!--    <dependency>-->
+<!--      <groupId>org.apache.hadoop</groupId>-->
+<!--      <artifactId>hadoop-common</artifactId>-->
+<!--      <version>2.6.5</version>-->
+<!--    </dependency>-->
+<!--    &lt;!&ndash; https://mvnrepository.com/artifact/org.apache.hadoop/hadoop-hdfs &ndash;&gt;-->
+<!--    <dependency>-->
+<!--      <groupId>org.apache.hadoop</groupId>-->
+<!--      <artifactId>hadoop-hdfs</artifactId>-->
+<!--      <version>2.6.5</version>-->
+<!--      <scope>test</scope>-->
+<!--    </dependency>-->
+    <!-- https://mvnrepository.com/artifact/org.apache.hadoop/hadoop-client -->
     <dependency>
       <groupId>org.apache.hadoop</groupId>
-      <artifactId>hadoop-common</artifactId>
+      <artifactId>hadoop-client</artifactId>
       <version>2.6.5</version>
     </dependency>
-    <!-- https://mvnrepository.com/artifact/org.apache.hadoop/hadoop-hdfs -->
-    <dependency>
-      <groupId>org.apache.hadoop</groupId>
-      <artifactId>hadoop-hdfs</artifactId>
-      <version>2.6.5</version>
-      <scope>test</scope>
-    </dependency>
+
+
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
