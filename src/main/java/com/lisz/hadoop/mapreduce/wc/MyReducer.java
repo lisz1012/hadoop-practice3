@@ -18,7 +18,7 @@ public class MyReducer extends Reducer<Text, IntWritable, Text, IntWritable> {
 	public void reduce(Text key, Iterable<IntWritable> values,
 	                   Context context) throws IOException, InterruptedException {
 		int sum = 0;
-		for (IntWritable val : values) {
+		for (IntWritable val : values) { // 相对于Reducer.run()中的while这个while是内层循环，用了假@迭代器，而后者才用的真@迭代器
 			sum += val.get();
 		}
 		result.set(sum);
