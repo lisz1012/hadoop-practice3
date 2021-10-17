@@ -24,12 +24,13 @@ public class TopNReducer extends Reducer<TopNKey, IntWritable, Text, IntWritable
 		int year = key.getYear();
 		int month = key.getMonth();
 		int day = key.getDay();
-		OUTPUT_KEY.set(year + "-" + month + "-" + day);
+		String location = key.getLocation();
+		OUTPUT_KEY.set(year + "-" + month + "-" + day + "-" + location);
 		OUTPUT_VALUE.set(key.getTemperature());
 		context.write(OUTPUT_KEY, OUTPUT_VALUE);
 		for (IntWritable i : values) {
 			if (key.getDay() != day) {
-				OUTPUT_KEY.set(year + "-" + month + "-" + key.getDay());
+				OUTPUT_KEY.set(year + "-" + month + "-" + key.getDay() + "-" + key.getLocation());
 				OUTPUT_VALUE.set(key.getTemperature());
 				context.write(OUTPUT_KEY, OUTPUT_VALUE);
 				return;

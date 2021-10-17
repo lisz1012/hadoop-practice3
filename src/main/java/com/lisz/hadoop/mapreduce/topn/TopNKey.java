@@ -11,6 +11,15 @@ public class TopNKey implements WritableComparable<TopNKey> {
 	private int month;
 	private int day;
 	private int temperature;
+	private String location;
+
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
 
 	public int getYear() {
 		return year;
@@ -66,6 +75,7 @@ public class TopNKey implements WritableComparable<TopNKey> {
 		out.writeInt(year);
 		out.writeInt(month);
 		out.writeInt(day);
+		out.writeUTF(location);
 		out.writeInt(temperature);
 	}
 
@@ -74,6 +84,7 @@ public class TopNKey implements WritableComparable<TopNKey> {
 		year = in.readInt();
 		month = in.readInt();
 		day = in.readInt();
+		location = in.readUTF();
 		temperature = in.readInt();
 	}
 }

@@ -9,6 +9,7 @@ import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
 import org.apache.hadoop.util.GenericOptionsParser;
 
 import java.io.IOException;
+import java.net.URI;
 
 public class MyTopN {
 	public static void main(String[] args) throws Exception {
@@ -22,6 +23,9 @@ public class MyTopN {
 
 		job.setJarByClass(MyTopN.class);
 		job.setJobName("TopN");
+
+		// 客户端规划的时候将join的右表cache到mapTask出现的节点上. mapreduce.framework.name 一定不能是local，框架要发送文件，集群运行
+		job.addCacheFile(new Path("/data/topn/dict").toUri());
 
 		//关注client代码的梳理，这个写明白了，其实也就真的知道这个作业的开发原理了
 		// 1。 map
